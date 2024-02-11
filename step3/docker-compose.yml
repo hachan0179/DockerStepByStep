@@ -1,0 +1,18 @@
+version: '3'
+services:
+  bottle-app:
+    build: 
+      context: ./bottle-app
+      dockerfile: ./dockerfile
+    image: bottle-app
+    container_name: bottle-app-container
+    ports:
+      - "8080:80"
+  mysql-db:
+    build: 
+      context: ./mysql-db
+      dockerfile: ./dockerfile
+    image: mysql
+    container_name: mysql-db-container
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
